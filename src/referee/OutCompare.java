@@ -3,7 +3,7 @@ package referee;
 import java.util.List;
 import java.util.Scanner;
 
-public class OutCompare {
+public class OutCompare{
 
     //out인지 아닌지 비교
     public boolean compareStrike(List<Integer> computer, List<Integer> player) {
