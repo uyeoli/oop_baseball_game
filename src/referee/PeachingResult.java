@@ -4,17 +4,22 @@ import countBall.BallCount;
 
 import java.util.List;
 
-public class PeachingResult {
+public class PeachingResult{
     
     //피칭 결과 출력
     public String printAnswer(List<Integer> computer, List<Integer> player){
         BallCount count = new BallCount(computer, player);
-        String result = "";
-
         int total = count.totalCount();
         int strike = count.strikeCount();
-        int ball = count.ballCount();
 
+        String result = printStatus(total, strike);
+
+        return result;
+    }
+
+    private String printStatus(int total, int strike) {
+        int ball = total - strike;
+        String result = "";
         if(total == 0) {
             result = "낫싱";
         } else if(strike == 0) {
@@ -26,4 +31,5 @@ public class PeachingResult {
         }
         return result;
     }
+
 }
