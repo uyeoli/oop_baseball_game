@@ -1,16 +1,16 @@
-package computer;
+package Peacher;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class NumberCreate {
+public class Peaching {
 
     //컴퓨터 숫자 생성
-    public List<Integer> createNumber() {
+    public List<Integer> createNumber(int size) {
         Random random = new Random();
         List<Integer> computer = new ArrayList<>();
-        while (computer.size() < 3) {
+        while (computer.size() < size) {
             int num = random.nextInt(9) + 1;
             if (!computer.contains(num)) {
                 computer.add(num);

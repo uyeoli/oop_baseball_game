@@ -1,19 +1,29 @@
-package countBall;
+package referee;
 
 import java.util.List;
 
-public class BallCount implements BallCounter{
+public class Judge implements Judgeable {
 
     private List<Integer> computer;
     private List<Integer> player;
+    private int size;
 
-    public BallCount(List<Integer> computer, List<Integer> player) {
+    public Judge(List<Integer> computer, List<Integer> player, int size) {
         this.computer = computer;
         this.player = player;
+        this.size = size;
+    }
+
+    //out인지 아닌지 비교
+    @Override
+    public boolean isOut(int size) {
+        if(countStrike() == size) {
+            return true;
+        }
+        return false;
     }
 
     //볼 카운트
-    @Override
     public int countBall(int total, int strike) {
         int ball = total - strike;
         return ball;
@@ -21,11 +31,10 @@ public class BallCount implements BallCounter{
 
 
     //전체 카운트
-    @Override
     public int countTotal() {
         int total = 0;
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
                 if (computer.get(i) == player.get(j)) {
                     total++;
                 }
@@ -35,10 +44,9 @@ public class BallCount implements BallCounter{
     }
 
     //스트라이크 카운트
-    @Override
     public int countStrike() {
         int strike = 0;
-        for(int i = 0; i < 3; i++) {
+        for(int i = 0; i < size; i++) {
             if(computer.get(i) == player.get(i)) {
                 strike++;
             }
