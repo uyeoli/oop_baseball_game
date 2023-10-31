@@ -2,13 +2,13 @@ package referee;
 
 import java.util.List;
 
-public class Judge implements Judgeable {
+public class Judgement implements Judgeable {
 
     private List<Integer> computer;
     private List<Integer> player;
     private int size;
 
-    public Judge(List<Integer> computer, List<Integer> player, int size) {
+    public Judgement(List<Integer> computer, List<Integer> player, int size) {
         this.computer = computer;
         this.player = player;
         this.size = size;

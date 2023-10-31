@@ -2,7 +2,7 @@ package electronicBoard;
 
 import referee.Judgement;
 
-public class Board implements StatusPrintable{
+public class Printer implements StatusPrintable{
     private int total;
     private int strike;
     private int ball;

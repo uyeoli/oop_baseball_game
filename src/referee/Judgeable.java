@@ -1,6 +1,6 @@
 package referee;
 
-public interface BallCounter {
+public interface Judgeable {
 
-    boolean isOut(BallCount count, int size);
+    boolean isOut(int size);
 }

@@ -1,10 +1,10 @@
-package Peacher;
+package pitcher;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Peaching {
+public class Pitching {
 
     //컴퓨터 숫자 생성
     public List<Integer> createNumber(int size) {

@@ -1,24 +1,29 @@
-import computer.NumberCreate;
-import player.NumberInput;
-import referee.OutCompare;
+import electronicBoard.Printer;
+import pitcher.Pitching;
+import referee.Judgement;
+import player.PlayerInput;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class Game {
-    NumberCreate numberCreate = new NumberCreate();
-    NumberInput numberInput = new NumberInput();
-    OutCompare result = new OutCompare();
+    Pitching numberCreate = new Pitching();
+    PlayerInput numberInput = new PlayerInput();
+    Printer printer = new Printer();
+    private final int size = 3;
     public void startGame() {
         System.out.println("게임을 시작합니다.");
 
-        List<Integer> computer = numberCreate.createNumber();
-        boolean flag = true;
+        List<Integer> computer = numberCreate.createNumber(size);
+        System.out.println(computer);
+        boolean flag = false;
 
-        while(flag) {
-            List<Integer> player = numberInput.inputNumber();
-            flag = result.compareStrike(computer,player);
-            if(flag == false) {
+        while(!flag) {
+            List<Integer> player = numberInput.input(size);
+            Judgement judgement = new Judgement(computer, player, size);
+            printer.printAnswer(judgement);
+            flag = judgement.isOut(size);
+            if(flag == true) {
                 askRestart();
             }
         }
@@ -30,6 +35,7 @@ public class Game {
 
     private void askRestart() {
         Scanner sc = new Scanner(System.in);
+        System.out.println("정답입니다.");
         System.out.println("1. 다시시작     2. 종료");
         int num = sc.nextInt();
         if(num == 1) {
