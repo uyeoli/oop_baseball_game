@@ -15,7 +15,6 @@ public class Game {
         System.out.println("게임을 시작합니다.");
 
         List<Integer> computer = numberCreate.createNumber(size);
-        System.out.println(computer);
         boolean flag = false;
 
         while(!flag) {
