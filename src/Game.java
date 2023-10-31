@@ -8,10 +8,10 @@ import java.util.Scanner;
 public class Game {
     NumberCreate numberCreate = new NumberCreate();
     NumberInput numberInput = new NumberInput();
-
+    OutCompare result = new OutCompare();
     public void startGame() {
         System.out.println("게임을 시작합니다.");
-        OutCompare result = new OutCompare();
+
         List<Integer> computer = numberCreate.createNumber();
         boolean flag = true;
 

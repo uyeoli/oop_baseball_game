@@ -10,7 +10,7 @@ public class OutCompare{
         PeachingResult peachingResult = new PeachingResult();
         String result = peachingResult.printAnswer(computer, player);
         System.out.println(result);
-        if(result.equals("3스트라이크")) {
+        if(result.contains("3스트라이크")) {
             return false;
         }
         return true;

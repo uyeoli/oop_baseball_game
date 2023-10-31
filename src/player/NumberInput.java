@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class NumberInput {
+public class NumberInput implements ExceptionChecker{
 
     //player 숫자 입력
     public List<Integer> inputNumber() {
@@ -21,7 +21,8 @@ public class NumberInput {
 
 
     //player exception 체크
-    private void exception(List<Integer> player) {
+    @Override
+    public void exception(List<Integer> player) {
         if(player.size() > 3) {
             throw new IllegalArgumentException();
         }

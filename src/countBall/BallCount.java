@@ -2,7 +2,7 @@ package countBall;
 
 import java.util.List;
 
-public class BallCount {
+public class BallCount implements BallCounter{
 
     private List<Integer> computer;
     private List<Integer> player;
@@ -12,8 +12,17 @@ public class BallCount {
         this.player = player;
     }
 
+    //볼 카운트
+    @Override
+    public int countBall(int total, int strike) {
+        int ball = total - strike;
+        return ball;
+    }
+
+
     //전체 카운트
-    public int totalCount() {
+    @Override
+    public int countTotal() {
         int total = 0;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -26,7 +35,8 @@ public class BallCount {
     }
 
     //스트라이크 카운트
-    public int strikeCount() {
+    @Override
+    public int countStrike() {
         int strike = 0;
         for(int i = 0; i < 3; i++) {
             if(computer.get(i) == player.get(i)) {
@@ -36,9 +46,6 @@ public class BallCount {
         return strike;
     }
 
-    //볼 카운트
-    public int ballCount() {
-        int ball = totalCount() - strikeCount();
-        return ball;
-    }
+
+
 }
