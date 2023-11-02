@@ -7,18 +7,18 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Game {
-    Pitching numberCreate = new Pitching();
-    PlayerInput numberInput = new PlayerInput();
+    Pitching pitching = new Pitching();
+    PlayerInput playerInput = new PlayerInput();
     Printer printer = new Printer();
     private final int size = 3;
     public void startGame() {
         System.out.println("게임을 시작합니다.");
 
-        List<Integer> computer = numberCreate.createNumber(size);
+        List<Integer> computer = pitching.pitch(size);
         boolean flag = false;
 
         while(!flag) {
-            List<Integer> player = numberInput.input(size);
+            List<Integer> player = playerInput.input(size);
             Judgement judgement = new Judgement(computer, player, size);
             printer.printAnswer(judgement);
             flag = judgement.isOut(size);

@@ -7,7 +7,7 @@ import java.util.Random;
 public class Pitching {
 
     //컴퓨터 숫자 생성
-    public List<Integer> createNumber(int size) {
+    public List<Integer> pitch(int size) {
         Random random = new Random();
         List<Integer> computer = new ArrayList<>();
         while (computer.size() < size) {
