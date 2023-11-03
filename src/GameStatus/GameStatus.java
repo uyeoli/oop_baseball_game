@@ -2,7 +2,8 @@ package GameStatus;
 
 public enum GameStatus {
     CONTINUE(1),
-    END(2);
+    END(2),
+    SIZE(3);
 
     private final int status;
 

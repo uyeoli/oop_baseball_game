@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface Enterable {
 
-    List<Integer> input(int size);
+    List<Integer> input();
 }

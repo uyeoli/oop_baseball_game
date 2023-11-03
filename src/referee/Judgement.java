@@ -1,22 +1,22 @@
 package referee;
 
+import GameStatus.GameStatus;
+
 import java.util.List;
 
 public class Judgement implements Judgeable {
 
     private List<Integer> computer;
     private List<Integer> player;
-    private int size;
-
-    public Judgement(List<Integer> computer, List<Integer> player, int size) {
+    private int size = GameStatus.SIZE.getStatus();
+    public Judgement(List<Integer> computer, List<Integer> player) {
         this.computer = computer;
         this.player = player;
-        this.size = size;
     }
 
     //out인지 아닌지 비교
     @Override
-    public boolean isOut(int size) {
+    public boolean isOut() {
         if(countStrike() == size) {
             return true;
         }

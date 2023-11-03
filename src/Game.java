@@ -17,7 +17,6 @@ public class Game {
     Pitcher pitcher = new Pitcher();
     Player player = new Player();
 
-    private static final int SIZE = 3;
     Scanner sc = new Scanner(System.in);
 
     private Judgement judgement;
@@ -25,15 +24,16 @@ public class Game {
     Printer printer;
     public void startGame() {
         System.out.println("게임을 시작합니다.");
-        List<Integer> computerList = pitcher.pitch(pitchable, SIZE); //투수의 피칭은 pitchable에 따라 달라짐 -> 의존성을 추상클래스에 둠
-
+        List<Integer> computerList = pitcher.pitch(pitchable); //투수의 피칭은 pitchable에 따라 달라짐 -> 의존성을 추상클래스에 둠
+        System.out.println(computerList);
         while(true) {
-            List<Integer> playerList = player.input(enterable, SIZE); //플레이어의 input은 enterable이라는 인터페이스에 의존성을 둠
-            judgement = new Judgement(computerList, playerList, SIZE);
+            List<Integer> playerList = player.input(enterable); //플레이어의 input은 enterable이라는 인터페이스에 의존성을 둠
+            judgement = new Judgement(computerList, playerList);
             printer = new Printer(judgement);
             printer.printAnswer();
-            if(judgement.isOut(SIZE)) {
+            if(judgement.isOut()) {
                 askRestart();
+                break;
             }
         }
     }
