@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Game {
-    Pitchable pitchable = new Pitching();
+    Pitchable pitchable = new Pitching(); // 인터페이스 타입으로 인스턴스화
     Enterable enterable = new PlayerInput();
     Pitcher pitcher = new Pitcher();
     Player player = new Player();
