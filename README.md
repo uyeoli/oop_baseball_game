@@ -27,4 +27,4 @@ SOLID 원칙 적용 1차
 
 SOLID 원칙 적용 2차  
 - OCP - Player와 Pitcher 클래스를 생성 -> 클라이언트가 구현체 클래스에 의존하지 않고 인터페이스에 의존함
-- DIP - Game에서 interface타입으로 선언해 의존성을 고모듈 클래스에 둠
+- DIP - Game에서 Player와 Pitcher 클래스를 interface타입으로 선언해 의존성을 고모듈 클래스에 둠
