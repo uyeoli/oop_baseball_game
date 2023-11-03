@@ -34,7 +34,6 @@ public class Game {
             printer.printAnswer();
             if(judgement.isOut(SIZE)) {
                 askRestart();
-                break;
             }
         }
     }
@@ -43,13 +42,15 @@ public class Game {
         System.out.println("게임을 종료합니다.");
     }
 
-    private void askRestart() {
+    private boolean askRestart() {
         System.out.println("정답입니다.");
         System.out.println("1. 다시시작     2. 종료");
         if(GameStatus.CONTINUE.isContinue(sc.nextInt())) {
             startGame();
+            return true;
         } else {
             endGame();
+            return false;
         }
     }
 }
