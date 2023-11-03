@@ -3,15 +3,16 @@ package electronicBoard;
 import referee.Judgement;
 
 public class Printer implements StatusPrintable{
-    private int total;
-    private int strike;
-    private int ball;
+    private Judgement judgement;
 
+    public Printer(Judgement judgement) {
+        this.judgement = judgement;
+    }
     //결과 출력
-    public void printAnswer(Judgement judgement){
-        total = judgement.countTotal();
-        strike = judgement.countStrike();
-        ball = judgement.countBall(total, strike);
+    public void printAnswer(){
+        int total = judgement.countTotal();
+        int strike = judgement.countStrike();
+        int ball = judgement.countBall(total, strike);
         String result = printStatus(total, strike, ball);
         System.out.println(result);
     }
@@ -30,7 +31,6 @@ public class Printer implements StatusPrintable{
         }
         return result;
     }
-
 
 
 }

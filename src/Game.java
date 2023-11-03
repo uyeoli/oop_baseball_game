@@ -1,29 +1,40 @@
 import electronicBoard.Printer;
+import pitcher.Pitchable;
+import pitcher.Pitcher;
 import pitcher.Pitching;
+import player.Enterable;
+import player.Player;
 import referee.Judgement;
 import player.PlayerInput;
+import GameStatus.GameStatus;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class Game {
-    Pitching pitching = new Pitching();
-    PlayerInput playerInput = new PlayerInput();
-    Printer printer = new Printer();
-    private final int size = 3;
+    Pitchable pitchable = new Pitching();
+    Enterable enterable = new PlayerInput();
+    Pitcher pitcher = new Pitcher();
+    Player player = new Player();
+
+    private static final int SIZE = 3;
+    Scanner sc = new Scanner(System.in);
+
+    private Judgement judgement;
+
+    Printer printer;
     public void startGame() {
         System.out.println("게임을 시작합니다.");
+        List<Integer> computerList = pitcher.pitch(pitchable, SIZE); //투수의 피칭은 pitchable에 따라 달라짐 -> 의존성을 추상클래스에 둠
 
-        List<Integer> computer = pitching.pitch(size);
-        boolean flag = false;
-
-        while(!flag) {
-            List<Integer> player = playerInput.input(size);
-            Judgement judgement = new Judgement(computer, player, size);
-            printer.printAnswer(judgement);
-            flag = judgement.isOut(size);
-            if(flag == true) {
+        while(true) {
+            List<Integer> playerList = player.input(enterable, SIZE); //플레이어의 input은 enterable이라는 인터페이스에 의존성을 둠
+            judgement = new Judgement(computerList, playerList, SIZE);
+            printer = new Printer(judgement);
+            printer.printAnswer();
+            if(judgement.isOut(SIZE)) {
                 askRestart();
+                break;
             }
         }
     }
@@ -33,13 +44,11 @@ public class Game {
     }
 
     private void askRestart() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("정답입니다.");
         System.out.println("1. 다시시작     2. 종료");
-        int num = sc.nextInt();
-        if(num == 1) {
+        if(GameStatus.CONTINUE.isContinue(sc.nextInt())) {
             startGame();
-        } else if(num == 2) {
+        } else {
             endGame();
         }
     }

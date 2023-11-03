@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Pitching {
+public class Pitching implements Pitchable{
 
     //컴퓨터 숫자 생성
+    @Override
     public List<Integer> pitch(int size) {
         Random random = new Random();
         List<Integer> computer = new ArrayList<>();

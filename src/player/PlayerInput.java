@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class PlayerInput {
-
+public class PlayerInput implements Enterable{
+    Checkable exceptionCheck = new IExceptionCheck();
+    Scanner sc = new Scanner(System.in);
     //player 입력
+    @Override
     public List<Integer> input(int size) {
-        IExceptionCheck exceptionCheck = new IExceptionCheck();
-        Scanner sc = new Scanner(System.in);
         List<Integer> player = new ArrayList<>();
         String number = sc.next();
         for(int i = 0; i < number.length(); i++) {
