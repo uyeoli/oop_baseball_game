@@ -27,8 +27,8 @@ SOLID 원칙 적용 1차
 - 추후 전략패턴, 템플릿 메소드 패턴 적용하며 이해 필요
 
 SOLID 원칙 적용 2차  
-- Game에서 Player와 Pitcher 클래스를 interface타입으로 선언해 의존성을 고모듈 클래스에 둠 -> DIP와 OCP 둘다 만족
-- Printer가 심판 판정 구조체에 의존성을 둠 -> 스트라이크, 볼을 카운트하는 메소드도 인터페이스로 추상화함
+- Game에서 Player와 Pitcher 클래스 인스턴스 생성시 interface타입으로 생성해 의존성을 인터페이스에 둠 -> 인터페이스를 통해 기존코드를 수정 시 확장으로 해결 가능 및 인터페이스에 의존함
+- 기존에는 Printer가 심판 판정 구조체에 의존성을 둠 -> 심판 판정 중 스트라이크, 볼을 카운트하는 메소드도 인터페이스로 추상화함
 
 # UML
 ![image](https://github.com/uyeoli/oop_baseball_game/assets/123793696/8b7db5c5-c160-445b-9d5d-baa0a3e51915)
