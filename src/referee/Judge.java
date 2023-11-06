@@ -23,27 +23,25 @@ public class Judgement implements Judgeable {
         return false;
     }
 
-    //볼 카운트
-    public int countBall(int total, int strike) {
-        int ball = total - strike;
-        return ball;
-    }
-
 
     //전체 카운트
-    public int countTotal() {
-        int total = 0;
+    @Override
+    public int countBall() {
+        int ball = 0;
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 if (computer.get(i) == player.get(j)) {
-                    total++;
+                    ball++;
                 }
             }
         }
-        return total;
+        ball = ball - countStrike();
+
+        return ball;
     }
 
     //스트라이크 카운트
+    @Override
     public int countStrike() {
         int strike = 0;
         for(int i = 0; i < size; i++) {
