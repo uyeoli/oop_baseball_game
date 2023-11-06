@@ -30,4 +30,5 @@ SOLID 원칙 적용 2차
 - Printer가 심판 판정 구조체에 의존성을 둠 -> 스트라이크, 볼을 카운트하는 메소드도 인터페이스로 추상화함
 
 # UML
-![image](https://github.com/uyeoli/oop_baseball_game/assets/123793696/8b83ec07-acdf-4111-9e0a-be6496fed9d0)
+![image](https://github.com/uyeoli/oop_baseball_game/assets/123793696/8b7db5c5-c160-445b-9d5d-baa0a3e51915)
+
