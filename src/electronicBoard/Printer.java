@@ -1,26 +1,25 @@
 package electronicBoard;
 
-import referee.Judgement;
+import referee.Judgeable;
 
 public class Printer implements StatusPrintable{
-    private Judgement judgement;
+    private Judgeable judgement;
 
-    public Printer(Judgement judgement) {
+    public Printer(Judgeable judgement) {
         this.judgement = judgement;
     }
     //결과 출력
+    @Override
     public void printAnswer(){
-        int total = judgement.countTotal();
         int strike = judgement.countStrike();
-        int ball = judgement.countBall(total, strike);
-        String result = printStatus(total, strike, ball);
+        int ball = judgement.countBall();
+        String result = printStatus(strike, ball);
         System.out.println(result);
     }
 
-    @Override
-    public String printStatus(int total, int strike, int ball) {
+    public String printStatus(int strike, int ball) {
         String result = "";
-        if(total == 0) {
+        if(ball == 0 && strike == 0) {
             result = "낫싱";
         } else if(strike == 0) {
             result = ball + "볼";

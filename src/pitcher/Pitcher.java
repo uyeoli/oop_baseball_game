@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Pitching implements Pitchable{
+public class Pitcher implements Pitchable{
 
     //컴퓨터 숫자 생성
     @Override

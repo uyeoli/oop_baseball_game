@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class PlayerInput implements Enterable{
+public class Player implements Enterable{
     Checkable exceptionCheck = new IExceptionCheck();
     Scanner sc = new Scanner(System.in);
     //player 입력

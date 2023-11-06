@@ -4,12 +4,12 @@ import GameStatus.GameStatus;
 
 import java.util.List;
 
-public class Judgement implements Judgeable {
+public class Judge implements Judgeable {
 
     private List<Integer> computer;
     private List<Integer> player;
     private int size = GameStatus.SIZE.getStatus();
-    public Judgement(List<Integer> computer, List<Integer> player) {
+    public Judge(List<Integer> computer, List<Integer> player) {
         this.computer = computer;
         this.player = player;
     }

@@ -1,35 +1,32 @@
 import electronicBoard.Printer;
+import electronicBoard.StatusPrintable;
 import pitcher.Pitchable;
 import pitcher.Pitcher;
-import pitcher.Pitching;
 import player.Enterable;
 import player.Player;
-import referee.Judgement;
-import player.PlayerInput;
+import referee.Judgeable;
+import referee.Judge;
 import GameStatus.GameStatus;
 
+import java.awt.print.Printable;
 import java.util.List;
 import java.util.Scanner;
 
 public class Game {
-    Pitchable pitchable = new Pitching(); // 인터페이스 타입으로 인스턴스화
-    Enterable enterable = new PlayerInput();
-    Pitcher pitcher = new Pitcher();
-    Player player = new Player();
+    Pitchable pitcher = new Pitcher(); // 인터페이스 타입으로 인스턴스화
+    Enterable player = new Player();
 
     Scanner sc = new Scanner(System.in);
 
-    private Judgement judgement;
-
-    Printer printer;
+    private Judgeable judgement;
+    private StatusPrintable printer;
     public void startGame() {
         System.out.println("게임을 시작합니다.");
-        List<Integer> computerList = pitcher.pitch(pitchable); //투수의 피칭은 pitchable에 따라 달라짐 -> 의존성을 추상클래스에 둠
-        System.out.println(computerList);
+        List<Integer> computerList = pitcher.pitch(); //투수의 피칭은 pitchable에 의존성을 둠 -> DIP 원칙 O
         while(true) {
-            List<Integer> playerList = player.input(enterable); //플레이어의 input은 enterable이라는 인터페이스에 의존성을 둠
-            judgement = new Judgement(computerList, playerList);
-            printer = new Printer(judgement);
+            List<Integer> playerList = player.input(); //플레이어의 입력은 eneterable에 의존성을 둠 - > DIP 원칙 O
+            judgement = new Judge(computerList, playerList);
+            printer = new Printer(judgement); // printer는 심판의 판정에 의존 -> 인터페이스에 의존하도록 변경함
             printer.printAnswer();
             if(judgement.isOut()) {
                 askRestart();
