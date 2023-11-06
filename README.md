@@ -29,5 +29,5 @@ SOLID 원칙 적용 2차
 - Game에서 Player와 Pitcher 클래스를 interface타입으로 선언해 의존성을 고모듈 클래스에 둠 -> DIP와 OCP 둘다 만족
 - Printer가 심판 판정 구조체에 의존성을 둠 -> 스트라이크, 볼을 카운트하는 메소드도 인터페이스로 추상화함
 
-#UML
+# UML
 ![image](https://github.com/uyeoli/oop_baseball_game/assets/123793696/8b83ec07-acdf-4111-9e0a-be6496fed9d0)
