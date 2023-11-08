@@ -3,14 +3,9 @@ package electronicBoard;
 import referee.Judgeable;
 
 public class Printer implements StatusPrintable{
-    private Judgeable judgement;
 
-    public Printer(Judgeable judgement) {
-        this.judgement = judgement;
-    }
-    //결과 출력
     @Override
-    public void printAnswer(){
+    public void printAnswer(Judgeable judgement){
         int strike = judgement.countStrike();
         int ball = judgement.countBall();
         String result = printStatus(strike, ball);

@@ -8,26 +8,23 @@ import referee.Judgeable;
 import referee.Judge;
 import GameStatus.GameStatus;
 
-import java.awt.print.Printable;
 import java.util.List;
 import java.util.Scanner;
 
 public class Game {
     Pitchable pitcher = new Pitcher(); // 인터페이스 타입으로 인스턴스화
     Enterable player = new Player();
-
+    StatusPrintable printer = new Printer();
     Scanner sc = new Scanner(System.in);
 
     private Judgeable judgement;
-    private StatusPrintable printer;
     public void startGame() {
         System.out.println("게임을 시작합니다.");
         List<Integer> computerList = pitcher.pitch(); //투수의 피칭은 pitchable에 의존성을 둠 -> DIP 원칙 O
         while(true) {
             List<Integer> playerList = player.input(); //플레이어의 입력은 eneterable에 의존성을 둠 - > DIP 원칙 O
             judgement = new Judge(computerList, playerList);
-            printer = new Printer(judgement); // printer는 심판의 판정에 의존 -> 인터페이스에 의존하도록 변경함
-            printer.printAnswer();
+            printer.printAnswer(judgement);
             if(judgement.isOut()) {
                 askRestart();
                 break;
