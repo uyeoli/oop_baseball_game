@@ -35,7 +35,7 @@ SOLID 원칙 적용 2차
 - 변수명 및 메소드명을 명확하게 표현
 - 스택 overflow가 나지 않도록 로직 구현
 - 불필요한 함수 호출을 최소화
-- 
+- 인스턴스 선언을 필요한 부분에서만 하기
 # UML
 ![image](https://github.com/uyeoli/oop_baseball_game/assets/123793696/5b78b6f5-fb24-453a-ae9a-f83b232c1a73)
 
