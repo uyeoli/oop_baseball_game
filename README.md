@@ -26,12 +26,29 @@ SOLID 원칙 적용 1차
 - is-a, has-a관계 이해 필요 -> LSP 사각형 문제 이해가 도움됨
 - 추후 전략패턴, 템플릿 메소드 패턴 적용하며 이해 필요
 
-SOLID 원칙 적용 2차  
+피드백 적용 1차 
 - Game에서 Player와 Pitcher 클래스 인스턴스 생성시 interface타입으로 생성해 의존성을 인터페이스에 둠 -> 인터페이스를 통해 기존코드를 수정 시 확장으로 해결 가능 및 인터페이스에 의존함
 - 기존에는 Printer가 심판 판정 구조체에 의존성을 둠 -> 심판 판정 중 스트라이크, 볼을 카운트하는 메소드도 인터페이스로 추상화함 -> 심판 인터페이스에 의존성을 둠
 
+피드백 2차
+- 매개변수로 인터페이스타입을 받아 구현하면 결합도가 높아지는게 보임
+- 변수명 및 메소드명을 명확하게 표현
+- 스택 overflow가 나지 않도록 로직 구현
+- 불필요한 함수 호출을 최소화
+- 인스턴스 선언을 필요한 부분에서만 하기
+
+피드백 적용 2차
+- 기존에 printer에서 매개변수로 Judgeable 타입으로 받던 메소드를 자료형으로 받도록 변환
+- 사용자가 입력한 값 리스트의 변수명을 player에서 좀더 구체적인 inputBall로 변경
+- Game로직의 while문에서 while문이 끝나기 전에 재귀함수 호출로 인한 Stack OverFlow가 발생한 부분을 while문 밖에서 재귀함수를 호출하도록 변경
+- Judge에서 isOut함수에 countStrike메소드를 판정할때마다 호출했지만 Strike와 Ball을 생성자로 넣음으로써 반복 호출 방지 -> countBall, countStrike 메소드에서는 로직만 수행 -> 볼과 스트라이크 카운트를 리턴하는 getBallCount, getStrikeCount 메소드 추가
+- Game클래스에서 Judgeable 인스턴스를 startGame안에서 선언 -> startGame에서만 사용하기 때문
 # UML
-![image](https://github.com/uyeoli/oop_baseball_game/assets/123793696/d04693c6-fb71-4bcb-8edc-363be74634f6)
+![image](https://github.com/uyeoli/oop_baseball_game/assets/123793696/9a504f75-7bd8-4c51-a66d-5e3a29f9d8e9)
+
+
+
+
 
 
 
