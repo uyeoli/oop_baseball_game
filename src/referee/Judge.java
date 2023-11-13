@@ -3,55 +3,65 @@ package referee;
 import GameStatus.GameStatus;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 public class Judge implements Judgeable {
 
-    private List<Integer> computer;
-    private List<Integer> player;
+    private int strike;
+    private int ball;
+    private List<Integer> pitchingBall;
+    private List<Integer> inputBall;
     private int size = GameStatus.SIZE.getStatus();
-    public Judge(List<Integer> computer, List<Integer> player) {
-        this.computer = computer;
-        this.player = player;
+    public Judge(List<Integer> pitchingBall, List<Integer> inputBall) {
+        this.pitchingBall = pitchingBall;
+        this.inputBall = inputBall;
+        this.strike = countStrike();
+        this.ball = countBall();
     }
 
     //out인지 아닌지 비교
     @Override
     public boolean isOut() {
-        if(countStrike() == size) {
+        if(strike == size) {
             return true;
         }
         return false;
     }
 
-
-    //전체 카운트
+    //볼 카운트
     @Override
-    public int countBall() {
-        int ball = 0;
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                if (computer.get(i) == player.get(j)) {
-                    ball++;
-                }
-            }
-        }
-        ball = ball - countStrike();
-
+    public int getBallCount() {
         return ball;
     }
 
     //스트라이크 카운트
     @Override
-    public int countStrike() {
-        int strike = 0;
-        for(int i = 0; i < size; i++) {
-            if(computer.get(i) == player.get(i)) {
-                strike++;
-            }
-        }
+    public int getStrikeCount() {
         return strike;
     }
 
 
+    public int countBall() {
+        int ball = 0;
+        for (int i=0; i < inputBall.size(); i++) {
+            if (pitchingBall.contains(inputBall.get(i))) {
+                ball++;
+            }
+        }
+        ball = ball - strike;
+
+        return ball;
+    }
+
+    public int countStrike() {
+        int strike = 0;
+        for (int i=0; i < inputBall.size(); i++) {
+            if (inputBall.get(i) == pitchingBall.get(i)) {
+                strike++;
+            }
+        }
+
+        return strike;
+    }
 
 }

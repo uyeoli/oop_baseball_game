@@ -17,19 +17,20 @@ public class Game {
     StatusPrintable printer = new Printer();
     Scanner sc = new Scanner(System.in);
 
-    private Judgeable judgement;
     public void startGame() {
         System.out.println("게임을 시작합니다.");
-        List<Integer> computerList = pitcher.pitch(); //투수의 피칭은 pitchable에 의존성을 둠 -> DIP 원칙 O
+        Judgeable judge;
+        List<Integer> pitchingBall = pitcher.pitch(); //투수의 피칭은 pitchable에 의존성을 둠 -> DIP 원칙 O
+        System.out.println(pitchingBall);
         while(true) {
-            List<Integer> playerList = player.input(); //플레이어의 입력은 eneterable에 의존성을 둠 - > DIP 원칙 O
-            judgement = new Judge(computerList, playerList);
-            printer.printAnswer(judgement);
-            if(judgement.isOut()) {
-                askRestart();
+            List<Integer> inputBall = player.input(); //플레이어의 입력은 enterable에 의존성을 둠 - > DIP 원칙 O
+            judge = new Judge(pitchingBall, inputBall);
+            printer.printAnswer(judge.getStrikeCount(), judge.getBallCount());
+            if(judge.isOut()) {
                 break;
             }
         }
+        askRestart();
     }
 
     private void endGame() {

@@ -4,16 +4,16 @@ import GameStatus.GameStatus;
 
 import java.util.List;
 
-public class IExceptionCheck implements Checkable {
-    //player exception 체크
+public class ValidationCheck implements Checkable {
+    //player 유효성 체크
     @Override
-    public void exception(List<Integer> player) {
-        if(player.size() > GameStatus.SIZE.getStatus()) {
+    public void checkValidation(List<Integer> inputBall) {
+        if(inputBall.size() > GameStatus.SIZE.getStatus()) {
             throw new IllegalArgumentException();
         }
-        for(int i = 0; i < player.size(); i++) {
+        for(int i = 0; i < inputBall.size(); i++) {
             for(int j = 0; j < i; j++) {
-                if(player.get(i) == player.get(j)) {
+                if(inputBall.get(i) == inputBall.get(j)) {
                     throw new IllegalArgumentException();
                 }
             }

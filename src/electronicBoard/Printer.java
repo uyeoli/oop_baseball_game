@@ -5,14 +5,12 @@ import referee.Judgeable;
 public class Printer implements StatusPrintable{
 
     @Override
-    public void printAnswer(Judgeable judgement){
-        int strike = judgement.countStrike();
-        int ball = judgement.countBall();
+    public void printAnswer(int strike, int ball){
         String result = printStatus(strike, ball);
         System.out.println(result);
     }
 
-    public String printStatus(int strike, int ball) {
+    private String printStatus(int strike, int ball) {
         String result = "";
         if(ball == 0 && strike == 0) {
             result = "낫싱";

@@ -5,19 +5,19 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Player implements Enterable{
-    Checkable exceptionCheck = new IExceptionCheck();
+    Checkable check = new ValidationCheck();
     Scanner sc = new Scanner(System.in);
     //player 입력
     @Override
     public List<Integer> input() {
-        List<Integer> player = new ArrayList<>();
+        List<Integer> inputBall = new ArrayList<>();
         String number = sc.next();
         for(int i = 0; i < number.length(); i++) {
-            player.add(Integer.valueOf(number.charAt(i)-'0'));
+            inputBall.add(Integer.valueOf(number.charAt(i)-'0'));
         }
-        exceptionCheck.exception(player);
+        check.checkValidation(inputBall);
 
-        return player;
+        return inputBall;
     }
 
 

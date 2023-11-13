@@ -3,6 +3,6 @@ package electronicBoard;
 import referee.Judgeable;
 
 public interface StatusPrintable {
-    void printAnswer(Judgeable judgeable);
+    void printAnswer(int strike, int ball);
 
 }
