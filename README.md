@@ -44,7 +44,8 @@ SOLID 원칙 적용 1차
 - Judge에서 isOut함수에 countStrike메소드를 판정할때마다 호출했지만 Strike와 Ball을 생성자로 넣음으로써 반복 호출 방지 -> countBall, countStrike 메소드에서는 로직만 수행 -> 볼과 스트라이크 카운트를 리턴하는 getBallCount, getStrikeCount 메소드 추가
 - Game클래스에서 Judgeable 인스턴스를 startGame안에서 선언 -> startGame에서만 사용하기 때문
 # UML
-![image](https://github.com/uyeoli/oop_baseball_game/assets/123793696/9a504f75-7bd8-4c51-a66d-5e3a29f9d8e9)
+![image](https://github.com/uyeoli/oop_baseball_game/assets/123793696/abc7963f-31a5-4d50-b7c4-107685a0280b)
+
 
 
 
