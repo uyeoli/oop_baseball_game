@@ -1,4 +1,4 @@
-package gameRuleChanger;
+package gameConfig;
 
 import electronicBoard.Printer;
 import electronicBoard.StatusPrintable;

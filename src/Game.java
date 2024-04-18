@@ -3,7 +3,7 @@ import pitcher.Pitchable;
 import player.Enterable;
 import referee.Judgeable;
 import gameStatus.GameStatus;
-import gameRuleChanger.GameConfig;
+import gameConfig.GameConfig;
 
 import java.util.List;
 import java.util.Scanner;
