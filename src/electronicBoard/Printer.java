@@ -4,13 +4,15 @@ import referee.Judgeable;
 
 public class Printer implements StatusPrintable{
 
+    private final Judgeable judgeable;
+
     public Printer(Judgeable judgeable) {
-        printAnswer(judgeable.getCountingStrike(), judgeable.getCountingBall());
+        this.judgeable = judgeable;
     }
 
     @Override
-    public void printAnswer(int strike, int ball){
-        String result = printStatus(strike, ball);
+    public void printResult(){
+        String result = printStatus(judgeable.getCountingStrike(), judgeable.getCountingBall());
         System.out.println(result);
     }
 

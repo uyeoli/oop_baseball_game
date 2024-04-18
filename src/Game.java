@@ -25,7 +25,9 @@ public class Game {
 
         while(true) {
             judge = gameConfig.judgeable(pitchingBall, player.input());
+
             printer = gameConfig.statusPrintable(judge);
+            printer.printResult();
 
             if(judge.isOut()) {
                 break;
