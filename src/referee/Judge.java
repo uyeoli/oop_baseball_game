@@ -1,25 +1,38 @@
 package referee;
 
-import GameStatus.GameStatus;
+import gameStatus.GameStatus;
 
 import java.util.List;
-import java.util.function.Consumer;
 
 public class Judge implements Judgeable {
 
     private int strike;
     private int ball;
-    private List<Integer> pitchingBall;
-    private List<Integer> inputBall;
-    private int size = GameStatus.SIZE.getStatus();
+    private final List<Integer> pitchingBall;
+    private final List<Integer> inputBall;
+    private final int size = GameStatus.SIZE.getStatus();
+
     public Judge(List<Integer> pitchingBall, List<Integer> inputBall) {
         this.pitchingBall = pitchingBall;
         this.inputBall = inputBall;
+
+        setCountingBall();
+    }
+
+    public void setCountingBall() {
         this.strike = countStrike();
         this.ball = countBall();
     }
 
-    //out인지 아닌지 비교
+    @Override
+    public int getCountingBall() {
+        return this.ball;
+    }
+    @Override
+    public int getCountingStrike() {
+        return this.strike;
+    }
+
     @Override
     public boolean isOut() {
         if(strike == size) {
@@ -27,19 +40,6 @@ public class Judge implements Judgeable {
         }
         return false;
     }
-
-    //볼 카운트
-    @Override
-    public int getBallCount() {
-        return ball;
-    }
-
-    //스트라이크 카운트
-    @Override
-    public int getStrikeCount() {
-        return strike;
-    }
-
 
     public int countBall() {
         int ball = 0;

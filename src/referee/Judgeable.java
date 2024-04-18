@@ -4,8 +4,8 @@ public interface Judgeable {
 
     boolean isOut();
 
-    int getBallCount();
+    int getCountingBall();
 
-    int getStrikeCount();
+    int getCountingStrike();
 
 }

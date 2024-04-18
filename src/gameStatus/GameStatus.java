@@ -1,4 +1,4 @@
-package GameStatus;
+package gameStatus;
 
 public enum GameStatus {
     CONTINUE(1),

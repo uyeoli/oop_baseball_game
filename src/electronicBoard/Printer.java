@@ -4,6 +4,10 @@ import referee.Judgeable;
 
 public class Printer implements StatusPrintable{
 
+    public Printer(Judgeable judgeable) {
+        printAnswer(judgeable.getCountingStrike(), judgeable.getCountingBall());
+    }
+
     @Override
     public void printAnswer(int strike, int ball){
         String result = printStatus(strike, ball);

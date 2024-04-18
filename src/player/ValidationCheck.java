@@ -1,6 +1,6 @@
 package player;
 
-import GameStatus.GameStatus;
+import gameStatus.GameStatus;
 
 import java.util.List;
 
