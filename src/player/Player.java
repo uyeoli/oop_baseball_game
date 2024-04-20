@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class Player implements Enterable{
     Checkable check = new Validator();
     Scanner sc = new Scanner(System.in);
-    //player 입력
     @Override
     public List<Integer> input() {
         List<Integer> inputBall = new ArrayList<>();

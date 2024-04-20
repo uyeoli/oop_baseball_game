@@ -10,7 +10,6 @@ import java.util.Scanner;
 public class Game {
     private Pitchable pitcher;
     private Enterable player;
-//    private StatusPrintable printer;
     private Judgeable judge;
 
     Scanner sc = new Scanner(System.in);
