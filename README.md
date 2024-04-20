@@ -57,7 +57,8 @@
 - 기존에 서로 호출하던 메소드를 재귀함수로 변경
 
 # UML
-![image](https://github.com/uyeoli/oop_baseball_game/assets/123793696/bf9cb093-781a-4b98-9230-383f3d77de78)
+![image](https://github.com/uyeoli/oop_baseball_game/assets/123793696/916beee5-09a8-42c8-991c-6c6b3f33f931)
+
 
 
 
