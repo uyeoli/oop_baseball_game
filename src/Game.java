@@ -1,4 +1,3 @@
-import electronicBoard.StatusPrintable;
 import pitcher.Pitchable;
 import player.Enterable;
 import referee.Judgeable;
@@ -11,7 +10,7 @@ import java.util.Scanner;
 public class Game {
     private Pitchable pitcher;
     private Enterable player;
-    private StatusPrintable printer;
+//    private StatusPrintable printer;
     private Judgeable judge;
 
     Scanner sc = new Scanner(System.in);
@@ -20,33 +19,25 @@ public class Game {
         GameConfig gameConfig = new GameConfig();
         pitcher = gameConfig.pitchable();
         player = gameConfig.enterable();
-
+        judge = gameConfig.judgeable();
         List<Integer> pitchingBall = pitcher.pitch();
 
         while(true) {
-            judge = gameConfig.judgeable(pitchingBall, player.input());
-
-            printer = gameConfig.statusPrintable(judge);
-            printer.printResult();
-
+            judge.doJudge(pitchingBall, player.input());
             if(judge.isOut()) {
                 break;
             }
         }
-        askRestart();
+
+        if(isRestart()){
+            startGame();
+        }
     }
 
-    private void endGame() {
-        System.out.println("게임을 종료합니다.");
-    }
-
-    private void askRestart() {
+    private boolean isRestart() {
         System.out.println("정답입니다.");
         System.out.println("1. 다시시작     2. 종료");
-        if(GameStatus.CONTINUE.isContinue(sc.nextInt())) {
-            startGame();
-        } else {
-            endGame();
-        }
+
+        return GameStatus.CONTINUE.isContinue(sc.nextInt());
     }
 }

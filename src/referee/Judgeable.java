@@ -1,11 +1,12 @@
 package referee;
 
+import java.util.List;
+
 public interface Judgeable {
 
     boolean isOut();
 
-    int getCountingBall();
+    void doJudge(List<Integer> pitchingBall, List<Integer> inputBall);
 
-    int getCountingStrike();
 
 }

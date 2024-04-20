@@ -18,7 +18,6 @@ public class Pitcher implements Pitchable {
                 computer.add(num);
             }
         }
-        System.out.println(computer);
         return computer;
     }
 }

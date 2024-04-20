@@ -5,5 +5,6 @@ public class Main {
 
         System.out.println("게임을 시작합니다.");
         game.startGame();
+        System.out.println("게임을 종료합니다.");
     }
 }

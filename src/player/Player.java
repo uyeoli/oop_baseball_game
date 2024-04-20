@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Player implements Enterable{
-    Checkable check = new ValidationCheck();
+    Checkable check = new Validator();
     Scanner sc = new Scanner(System.in);
     //player 입력
     @Override

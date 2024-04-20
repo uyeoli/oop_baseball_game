@@ -1,7 +1,5 @@
 package gameConfig;
 
-import electronicBoard.Printer;
-import electronicBoard.StatusPrintable;
 import pitcher.Pitchable;
 import pitcher.Pitcher;
 import player.Enterable;
@@ -21,12 +19,8 @@ public class GameConfig {
         return new Pitcher();
     }
 
-    public StatusPrintable statusPrintable(Judgeable judgeable) {
-        return new Printer(judgeable);
-    }
-
-    public Judgeable judgeable(List<Integer> pitchingBall, List<Integer> inputBall) {
-        return new Judge(pitchingBall, inputBall);
+    public Judgeable judgeable() {
+        return new Judge();
     }
 
 }

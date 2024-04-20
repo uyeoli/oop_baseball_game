@@ -4,7 +4,7 @@ import gameStatus.GameStatus;
 
 import java.util.List;
 
-public class ValidationCheck implements Checkable {
+public class Validator implements Checkable {
     //player 유효성 체크
     @Override
     public void checkValidation(List<Integer> inputBall) {
